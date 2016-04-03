@@ -5,8 +5,8 @@ public class PatternTypeConfig {
 	public String type;
 	
 	
-	public PatternTypeConfig(String bindingPattern, String type) {
-		this.bindingPattern = bindingPattern;
+	public PatternTypeConfig(String pattern, String type) {
+		this.bindingPattern = pattern;
 		this.type = type;
 	}
 }

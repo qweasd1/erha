@@ -128,7 +128,7 @@ public class ErhaParser {
 			modifier = matchRegex(mConfig.bindingPattern);
 			if (modifier != null) {
 				modifier_type = mConfig.type;
-				if (mConfig.modifierType == ModifierMode.TYPE_WITH_TEXT) {
+				if (mConfig.modifierType == ModifierType.TYPE_WITH_TEXT) {
 					modifier_value = firstGroup(modifier, mConfig.bindingPattern);
 				}
 				

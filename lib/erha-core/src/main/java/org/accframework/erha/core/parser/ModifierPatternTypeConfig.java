@@ -2,10 +2,10 @@ package org.accframework.erha.core.parser;
 
 public class ModifierPatternTypeConfig extends PatternTypeConfig {
 
-	public ModifierMode modifierType;
+	public ModifierType modifierType;
 	
-	public ModifierPatternTypeConfig(String bindingPattern, String type, ModifierMode modifierType) {
-		super(bindingPattern, type);
+	public ModifierPatternTypeConfig(String pattern, String type, ModifierType modifierType) {
+		super(pattern, type);
 		this.modifierType = modifierType;
 	}
 	
