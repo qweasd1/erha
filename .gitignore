@@ -7,6 +7,10 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
+lib/erha-core/target
+lib/erha-core/.setting
+lib/.metadata
+lib/.recommenders
 
 # =========================
 # Operating System Files
