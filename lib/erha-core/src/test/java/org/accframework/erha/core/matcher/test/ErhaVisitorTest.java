@@ -16,6 +16,7 @@ import org.accframework.erha.core.model.Unit;
 import org.accframework.erha.core.parser.CharStream;
 import org.accframework.erha.core.parser.ErhaParser;
 import org.accframework.erha.core.parser.ErhaParserConfig;
+import org.accframework.erha.core.parser.ErhaParserConfigBuilder;
 import org.accframework.erha.core.parser.ErhaSourceCodePreProccessor;
 import org.accframework.erha.core.parser.ModifierPatternTypeConfig;
 import org.accframework.erha.core.parser.ModifierType;
@@ -30,21 +31,7 @@ public class ErhaVisitorTest {
 	private ErhaParserConfig config;
 
 	private ErhaParser createParser(String text) {
-		config = new ErhaParserConfig();
-		// add default annotation modifier '@'
-		config.annotationModifierConfigs.add(new ModifierPatternTypeConfig("@", null, ModifierType.TYPE_ONLY));
-		// add default key value binding '='
-		config.keyValueBindingConfigs.add(new PatternTypeConfig("=", null));
-		//skip WS
-		config.skipPatterns.add("[ \\t]+");
-		//property
-		config.propertySetStartBound = "(";
-		config.propertySeperator = ",";
-		config.propertySetEndBound = ")";
-		
-		//tabLength, used to calculate indent
-		config.tabLength = 4;
-		
+		config = ErhaParserConfigBuilder.defaultBuilder().createConfig();	
 		
 		
 		ErhaSourceCodePreProccessor preProccessor = new ErhaSourceCodePreProccessor();
@@ -85,7 +72,7 @@ public class ErhaVisitorTest {
 		config.unitModifierConfigs.add(new ModifierPatternTypeConfig("(\\w+)\\s*:", "kvp", ModifierType.TYPE_WITH_TEXT));
 		
 		visitor.visit(parser.parse());
-		assertNull(visitor);
+		assertNotNull(visitor);
 	}
 	
 	@Test
@@ -116,7 +103,7 @@ public class ErhaVisitorTest {
 		
 		Root root = parser.parse();
 		visitor.visit(root);
-		assertNull(visitor);
+		assertNotNull(visitor);
 	}
 	
 	
