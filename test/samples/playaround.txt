@@ -1,8 +1,3 @@
-@res
-user
-	name:tony
-	age:23
-	@res
-	pets:
-		name:
-		age:
+User
+	info
+	test

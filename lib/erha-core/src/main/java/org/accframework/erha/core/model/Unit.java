@@ -27,6 +27,9 @@ public class Unit {
 		return children;
 	}
 
-
+	@Override
+	public String toString() {
+		return entity.getValue().getValue();
+	}
 	
 }

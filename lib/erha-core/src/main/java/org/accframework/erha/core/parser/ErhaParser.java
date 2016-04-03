@@ -10,6 +10,7 @@ import javax.sound.midi.MidiChannel;
 
 import org.accframework.erha.core.model.Entity;
 import org.accframework.erha.core.model.Property;
+import org.accframework.erha.core.model.Root;
 import org.accframework.erha.core.model.Unit;
 import org.accframework.erha.core.model.Value;
 import org.accframework.erha.core.parser.ErhaParserConfig;
@@ -29,6 +30,10 @@ public class ErhaParser {
 		this.indentProcessor = new IndentProcessor(charStream, config.tabLength);
 	}
 	
+	
+	public Root parse() {
+		return new Root(units());
+	}
 	
 	public List<Unit> units() {
 		while (!charStream.isEnd()) {
@@ -61,6 +66,10 @@ public class ErhaParser {
 		}
 		
 		charStream.commit();
+		
+		if (annotations == null) {
+			annotations =  new ArrayList<Entity>();
+		}
 		Unit unit = new Unit(annotations, entity);
 		return unit;
 	}
